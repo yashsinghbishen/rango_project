@@ -1,0 +1,27 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+        About
+{% endblock %}
+
+{% block body_block %}
+        <div>
+                hey there partner! <br />
+        </div>
+
+        <div>
+                
+                <img  src="{% static "superduke.png" %}"
+                alt="Picture of Rango" /> <!-- New line -->
+        </div>
+
+        <button class="btn btn-primary"
+                onClick="alert('You clicked the button using JavaScript.');">
+                Click Me - I run JavaScript
+                </button>
+        <button class="btn btn-primary" id="about-btn">
+                Click Me - I'm JavaScript on Speed</button>
+        <p>This is a example</p>
+        <p>This is another example</p>
+        <div id="msg">Hello - I'm here for a JQuery Example too</div>
+{% endblock %}

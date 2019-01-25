@@ -1,0 +1,52 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron">
+  <h1 class="display-3">
+    {% if user.is_authenticated %}
+      howdy {{ user.username }}!
+    {% else %}
+      hey there partner!
+    {% endif %}
+  </h1>
+</div>
+<div id="content" class="colM">
+  <!-- <h5>visits:{{ request.session.visit }}</h5> -->
+  <div class="row marketing">
+      <div class="col-lg-6">
+        <h5>Most Liked Categories...</h5>
+        <p>
+          {% if Category %}
+          <ul>
+            {% for categor in Category %}
+            <li><a href="{% url 'show_category' categor.slug %}">{{ categor.name }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <strong>There are no categories present.</strong>
+          {% endif %}
+          </p>
+      </div>
+
+
+      <div class="col-lg-6">
+        <h5>Most Viewed Pages</h5>
+        <p>
+          {% if Pages %}
+          <ul>
+            {% for page in Pages %}
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <strong>There are no Pages present.</strong>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
